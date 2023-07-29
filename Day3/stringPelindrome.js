@@ -1,4 +1,4 @@
-
+// String pelindrome 
 
 function checkPelindrome(str){
     let firstIndex = 0;
