@@ -15,31 +15,55 @@ function matchingStrings(strings, queries) {
     // Write your code here
     const map1 = {}
     const map2 = {}
-    for(let i = 0 ; i <queries.length ; i++){
-         map1[queries[i]] ? map1[queries[i]]+=1 : map1[queries[i]] = 1;
+    for(let i = 0 ; i < strings.length ; i++){
+        const item = strings[i] 
+        map1[item] =  (map1[item] ?? 0) + 1 ;
+    }
+
+    const newArr = []; 
+
+    for(let i = 0 ; i < queries.length ; i++){
+        const item =  queries[i];
+        newArr.push(map1[item] ?? 0)
     }
     
-    for(let i = 0 ; i <strings.length ; i++){
-         map2[strings[i]] ? map2[strings[i]]+=1 : map2[strings[i]] = 1;
-    }
-   const newArr = []; 
-    
-    
-for (const key in map1) {
-    if(!map2[key]){
-        map2[key] = 0
-    }
-    
-    newArr.push(map2[key])
-    
-}
-   
-    console.log( newArr)
-    return newArr
+    console.log("newArr ===>",newArr)
 }
 
 
-matchingStrings(["abcde", "sdaklfj", "asdjf", "na", "basdn", "sdaklfj", "asdjf", "na", "asdjf", "na", "basdn", "sdaklfj", "asdjf"] , ["abcde", "sdaklfj", "asdjf", "na","basdn"])
+// matchingStrings(["abcde",  "sdaklfj", "asdjf", "na", "jagdish", "jagdish", "basdn", "sdaklfj", "asdjf", "na", "asdjf", "na","sdaklfj", "asdjf"] , ["abcde","jagdish", "sdaklfj", "asdjf", "na","basdn"])
 
 
 
+
+
+
+
+
+function diagonalDifference(arr) {
+    // Write your code here
+    let fullLengthIndex = 0;
+    let totalLength = 3;
+    let leftToRight = 0;
+    let rightToLeft = 0;
+    for (let i = 0; i < arr.length; i++) {
+        
+        // console.log("arr ==> " , arr[i])
+        if(arr[i].length === 3){
+            fullLengthIndex++;
+            totalLength--;
+            leftToRight+= arr[i][fullLengthIndex - 1];
+            rightToLeft+= arr[i][totalLength];
+        }
+
+    }
+    
+   return rightToLeft > leftToRight  ? rightToLeft - leftToRight : leftToRight -  rightToLeft;
+
+}
+
+console.log(diagonalDifference([[4],
+    [-1 ,1 ,-7 ,-8],
+    [-10, -8 ,-5, -2],
+    [0 , 9  ,7 ,-1],
+    [4, 4 ,-2 ,1] ]))
