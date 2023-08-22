@@ -1,4 +1,3 @@
-// //  
 
 // const getFactr = (n , fact = 1, increNum = 1) => {
    
@@ -15,24 +14,15 @@
 
 
 
-function ticketNumberGen(type, res){
-     const n = type;
-     const r = Number(res);
-      if (n < r) {
-         return false;
-     }
-     const nFactorial = factorial(n);
-     const nMinusRFactorial = factorial(n - r);
-     const result = nFactorial / (nMinusRFactorial);
-     return result; 
-     }
-    
-function factorial(num) {
-     if (num === 0 || num === 1) {
-     return 1;
-     } else {
-     return num * factorial(num - 1);
-     }
-     }
+const fibonacci = (  number , first = 0 , second = 1  ) => {
+    const sum = first + second;
+    console.log(`the fibonacci of number ${first} & ${second} is = ${sum}`) 
+    first++;
+    second++;
+    if(number < second) return 
+    return fibonacci(number , first , second )
+}
 
-    console.log(ticketNumberGen( 9 ,2 )) 
+
+
+fibonacci(10)
