@@ -5,7 +5,7 @@ function checkPelindrome(str){
     let lastIndex = str.length - 1;
 
 
-    while(firstIndex< lastIndex){
+    while(firstIndex < lastIndex){
         if(str[firstIndex] !== str[lastIndex]){
             return false;
         }

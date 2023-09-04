@@ -52,4 +52,4 @@ const checkPrimaryNumber = (number)=>{
 }
 
 
-console.log(checkPrimaryNumber(47))
+// console.log(checkPrimaryNumber(47))
