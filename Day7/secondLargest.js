@@ -13,7 +13,7 @@ const findLargest = (arr) =>{
         if(element > lar){
             secLar = lar;
             lar= element;
-        }else if(element > secLar && element < lar) secLar = element;
+        }else if(element > secLar) secLar = element;
 
     }
     return secLar;
